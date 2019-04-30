@@ -34,7 +34,15 @@ namespace algorithmwithCsharpnotpython
 
         private void button2_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
+            List<int> testList = new List<int>() { 4, 5, 6, 7, 2, 4, 10 };
+            var array = testList.ToArray();
+            sort.insertionSort(array);
 
+            foreach (var i in array)
+            {
+                listBox1.Items.Add(i.ToString());
+            }
         }
     }
 }

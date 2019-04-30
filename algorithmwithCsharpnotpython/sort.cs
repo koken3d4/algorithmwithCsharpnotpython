@@ -18,7 +18,7 @@ namespace algorithmwithCsharpnotpython
         {
             sortStart(intList.ToArray());
         }
-        
+
         /// <summary>
         /// 配列は参照型なので、これで配列の内容が変更されるので大丈夫
         /// </summary>
@@ -43,6 +43,32 @@ namespace algorithmwithCsharpnotpython
             int tempInt = array[i];
             array[i] = array[min];
             array[min] = tempInt;
+        }
+
+        static internal void insertionSort(int[] intArray)
+        {
+            for (int i = 1; i < intArray.Length - 1; i++)
+                insert(intArray, i);
+        }
+
+        static void insert(int[] array, int ii)
+        {
+            //
+            int temp = array[ii];
+            for (int i = ii - 1; i >= 0; i--)
+            {
+                if (temp < array[i])
+                    array[i + 1] = array[i];
+                else
+                {
+                    array[i + 1] = temp;
+                    break;
+                }
+                //for文が全て実行されたときは配列の先頭の項目とする。
+                if (i == 0)
+                    array[0] = temp;
+            }
+
         }
     }
 }
