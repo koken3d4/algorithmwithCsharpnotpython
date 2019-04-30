@@ -18,7 +18,11 @@ namespace algorithmwithCsharpnotpython
         {
             sortStart(intList.ToArray());
         }
-
+        
+        /// <summary>
+        /// 配列は参照型なので、これで配列の内容が変更されるので大丈夫
+        /// </summary>
+        /// <param name="intArray"></param>
         internal void sortStart(int[] intArray)
         {
             for (int i = 0; i < intArray.Length - 1; i++)
@@ -40,8 +44,5 @@ namespace algorithmwithCsharpnotpython
             array[i] = array[min];
             array[min] = tempInt;
         }
-
-
-
     }
 }

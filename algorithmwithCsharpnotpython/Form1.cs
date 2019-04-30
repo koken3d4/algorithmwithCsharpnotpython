@@ -30,6 +30,10 @@ namespace algorithmwithCsharpnotpython
             {
                 listBox1.Items.Add(i.ToString());
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
 
         }
     }
