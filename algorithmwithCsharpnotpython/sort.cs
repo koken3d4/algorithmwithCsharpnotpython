@@ -68,7 +68,27 @@ namespace algorithmwithCsharpnotpython
                 if (i == 0)
                     array[0] = temp;
             }
+        }
 
+        static internal void bubbleSort(int[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                modifyOrder(array, i);
+            }
+        }
+
+        static void modifyOrder(int[] array, int endIndex)
+        {
+            for (int i = array.Length - 2; i > endIndex ; i--)
+            {
+                if (array[i - 1] > array[i])
+                {
+                    int temp = array[i];
+                    array[i] = array[i - 1];
+                    array[i - 1] = temp;
+                }
+            }
         }
     }
 }
