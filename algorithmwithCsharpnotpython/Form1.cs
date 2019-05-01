@@ -74,10 +74,28 @@ namespace algorithmwithCsharpnotpython
 
         private void button5_Click(object sender, EventArgs e)
         {
+            int number = 0;
+            if (!int.TryParse(textBox1.Text, out number))
+                return;
+
             listBox1.Items.Clear();
             List<int> testList = new List<int>() { 4, 5, 6, 7, 2, 4, 10 };
             var array = testList.ToArray();
-            var s = sort.fib(15);
+            var s = sort.fib(number);
+
+            listBox1.Items.Add(s.ToString());
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            int number = 0;
+            if (!int.TryParse(textBox1.Text, out number))
+                return;
+
+            listBox1.Items.Clear();
+            List<int> testList = new List<int>() { 4, 5, 6, 7, 2, 4, 10 };
+            var array = testList.ToArray();
+            var s = sort.fib_List(number);
 
             listBox1.Items.Add(s.ToString());
         }

@@ -132,5 +132,24 @@ namespace algorithmwithCsharpnotpython
                 return c;
             }
         }
+
+        internal static long fib_List(int index)
+        {
+            List<long> longList = new List<long>();
+            longList.Add(0);
+            longList.Add(1);
+
+            //インデックスの境界外を防ぐためにif文で処理。
+            if (index < 2)
+                return longList[index];
+            //indexの所で反復を終了させるとlongList[index]でエラーが出るので、プラス1する。
+            for (int i = 2; i  < index+1; i++)
+            {
+                long addList = longList[i - 2] + longList[i - 1];
+                longList.Add(addList);
+            }
+
+            return longList[index];
+        }
     }
 }
