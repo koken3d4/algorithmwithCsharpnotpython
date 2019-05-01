@@ -93,11 +93,25 @@ namespace algorithmwithCsharpnotpython
                 return;
 
             listBox1.Items.Clear();
-            List<int> testList = new List<int>() { 4, 5, 6, 7, 2, 4, 10 };
-            var array = testList.ToArray();
             var s = sort.fib_List(number);
 
             listBox1.Items.Add(s.ToString());
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            int number = 0;
+            if (!int.TryParse(textBox1.Text, out number))
+                return;
+
+            listBox1.Items.Clear();
+
+            List<string> commentList = new List<string>();
+             sort.hanoi(number,commentList);
+
+            foreach (var str in commentList)
+            { listBox1.Items.Add(str); }
+            //listBox1.Items.Add(s.ToString());
         }
     }
 }

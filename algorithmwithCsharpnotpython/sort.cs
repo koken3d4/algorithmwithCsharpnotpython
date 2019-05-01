@@ -143,13 +143,29 @@ namespace algorithmwithCsharpnotpython
             if (index < 2)
                 return longList[index];
             //indexの所で反復を終了させるとlongList[index]でエラーが出るので、プラス1する。
-            for (int i = 2; i  < index+1; i++)
+            for (int i = 2; i < index + 1; i++)
             {
                 long addList = longList[i - 2] + longList[i - 1];
                 longList.Add(addList);
             }
 
             return longList[index];
+        }
+
+        internal static void hanoi(int index, List<string> comment)
+        {
+            move(index, 1, 2, 3, comment);
+        }
+
+        static void move(int diskNumber, int start, int yobi, int end, List<string> comment)
+        {
+            if (diskNumber >= 2)
+            {
+                move(diskNumber - 1, start, end, yobi, comment);
+            }
+            comment.Add(start.ToString() + "軸の円盤を" + end.ToString() + "軸へ移動");
+            if (diskNumber >= 2)
+                move(diskNumber - 1, yobi, start, end, comment);
         }
     }
 }
