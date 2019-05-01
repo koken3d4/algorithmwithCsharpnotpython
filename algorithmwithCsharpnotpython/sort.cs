@@ -80,7 +80,7 @@ namespace algorithmwithCsharpnotpython
 
         static void modifyOrder(int[] array, int endIndex)
         {
-            for (int i = array.Length - 2; i > endIndex ; i--)
+            for (int i = array.Length - 2; i > endIndex; i--)
             {
                 if (array[i - 1] > array[i])
                 {
@@ -89,6 +89,35 @@ namespace algorithmwithCsharpnotpython
                     array[i - 1] = temp;
                 }
             }
+        }
+
+        static internal int bubbleSortReviced(int[] array)
+        {
+            int retVal = -1;
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                retVal = modifyOrderRevision(array, i);
+                //変換処理が行われなかったときは、すでに昇順になっていると考えて処理を終了する。
+                if (retVal == 0)
+                    break;
+            }
+            return retVal;
+        }
+
+        static int modifyOrderRevision(int[] array, int endIndex)
+        {
+            int exchange = 0;
+            for (int i = array.Length - 1; i > endIndex; i--)
+            {
+                if (array[i - 1] > array[i])
+                {
+                    int temp = array[i];
+                    array[i] = array[i - 1];
+                    array[i - 1] = temp;
+                    exchange += 1;
+                }
+            }
+            return exchange;
         }
     }
 }
