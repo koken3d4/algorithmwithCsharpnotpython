@@ -17,6 +17,18 @@ namespace algorithmwithCsharpnotpython
             InitializeComponent();
         }
 
+        bool checkTextBox(string inputText, ref int retInt)
+        {
+            //数値が変換できたときはTRUEを返す。変換できないときはFALSEを返す。
+            if (int.TryParse(inputText, out retInt))
+                return true;
+            else
+            {
+                MessageBox.Show("数値を入力して下さい");
+                return false;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -114,16 +126,9 @@ namespace algorithmwithCsharpnotpython
             //listBox1.Items.Add(s.ToString());
         }
 
-        bool checkTextBox(string inputText, ref int retInt)
+        private void button8_Click(object sender, EventArgs e)
         {
-            //数値が変換できたときはTRUEを返す。変換できないときはFALSEを返す。
-            if (int.TryParse(inputText, out retInt))
-                return true;
-            else
-            {
-                MessageBox.Show("数値を入力して下さい");
-                return false;
-            }
+
         }
     }
 }
