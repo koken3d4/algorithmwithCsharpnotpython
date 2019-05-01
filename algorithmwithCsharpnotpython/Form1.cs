@@ -75,7 +75,7 @@ namespace algorithmwithCsharpnotpython
         private void button5_Click(object sender, EventArgs e)
         {
             int number = 0;
-            if (!int.TryParse(textBox1.Text, out number))
+            if (!checkTextBox(textBox1.Text, ref number))
                 return;
 
             listBox1.Items.Clear();
@@ -89,7 +89,7 @@ namespace algorithmwithCsharpnotpython
         private void button6_Click(object sender, EventArgs e)
         {
             int number = 0;
-            if (!int.TryParse(textBox1.Text, out number))
+            if (!checkTextBox(textBox1.Text, ref number))
                 return;
 
             listBox1.Items.Clear();
@@ -101,17 +101,29 @@ namespace algorithmwithCsharpnotpython
         private void button7_Click(object sender, EventArgs e)
         {
             int number = 0;
-            if (!int.TryParse(textBox1.Text, out number))
+            if (!checkTextBox(textBox1.Text, ref number))
                 return;
 
             listBox1.Items.Clear();
 
             List<string> commentList = new List<string>();
-             sort.hanoi(number,commentList);
+            sort.hanoi(number, commentList);
 
             foreach (var str in commentList)
             { listBox1.Items.Add(str); }
             //listBox1.Items.Add(s.ToString());
+        }
+
+        bool checkTextBox(string inputText, ref int retInt)
+        {
+            //数値が変換できたときはTRUEを返す。変換できないときはFALSEを返す。
+            if (int.TryParse(inputText, out retInt))
+                return true;
+            else
+            {
+                MessageBox.Show("数値を入力して下さい");
+                return false;
+            }
         }
     }
 }

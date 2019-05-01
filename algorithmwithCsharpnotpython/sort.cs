@@ -163,7 +163,7 @@ namespace algorithmwithCsharpnotpython
             {
                 move(diskNumber - 1, start, end, yobi, comment);
             }
-            comment.Add(start.ToString() + "軸の円盤を" + end.ToString() + "軸へ移動");
+            comment.Add(diskNumber.ToString() + "のディスクについて" + start.ToString() + "軸の円盤を" + end.ToString() + "軸へ移動");
             if (diskNumber >= 2)
                 move(diskNumber - 1, yobi, start, end, comment);
         }
