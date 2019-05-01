@@ -119,5 +119,18 @@ namespace algorithmwithCsharpnotpython
             }
             return exchange;
         }
+
+        internal static int fib(int n)
+        {
+            if (n < 2)
+                return n;
+            else
+            {
+                int a = fib(n - 1);
+                int b = fib(n - 2);
+                int c = a + b;
+                return c;
+            }
+        }
     }
 }

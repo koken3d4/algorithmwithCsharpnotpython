@@ -71,5 +71,15 @@ namespace algorithmwithCsharpnotpython
             }
             listBox1.Items.Add(s.ToString());
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            List<int> testList = new List<int>() { 4, 5, 6, 7, 2, 4, 10 };
+            var array = testList.ToArray();
+            var s = sort.fib(15);
+
+            listBox1.Items.Add(s.ToString());
+        }
     }
 }
