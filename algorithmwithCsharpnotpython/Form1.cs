@@ -130,5 +130,22 @@ namespace algorithmwithCsharpnotpython
         {
 
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            //ヒープソート用に改造する。
+            //int number = 0;
+            //if (!checkTextBox(textBox1.Text, ref number))
+            //    return;
+            //テストリストの中をヒープソートする。
+            listBox1.Items.Clear();
+            List<int> testList = new List<int>() { 4, 5, 6, 7, 2, 4, 10 };
+            List<string> commentList = new List<string>();
+            sort.heapSort(testList.ToArray());
+
+            foreach (var str in commentList)
+            { listBox1.Items.Add(str); }
+            //listBox1.Items.Add(s.ToString());
+        }
     }
 }

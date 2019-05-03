@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace algorithmwithCsharpnotpython
 {
@@ -166,6 +167,64 @@ namespace algorithmwithCsharpnotpython
             comment.Add(diskNumber.ToString() + "のディスクについて" + start.ToString() + "軸の円盤を" + end.ToString() + "軸へ移動");
             if (diskNumber >= 2)
                 move(diskNumber - 1, yobi, start, end, comment);
+        }
+
+        public static void heapSort(int[] array)
+        {
+            constructHeap(array, 0);
+            Debug.Print(string.Join(",", array));
+            for (int last = array.Length - 1; last > 0; last--)
+            {
+                int temp = array[0];
+                array[0] = array[last ];
+                array[last ] = temp;
+                exchangeNodes(array, 0, last - 1);
+                string str = string.Join(",", array);   //配列の各要素が","で区切られて一つの文字列として出力される。
+                Debug.Print(str);
+            }
+        }
+        
+        static void constructHeap(int[] array, int n)
+        {
+            int lastIndex = array.Length - 1;
+            if (lastIndex < left(n))
+                return;
+
+            constructHeap(array, left(2));
+            if (right(n) <= lastIndex)
+            {
+                constructHeap(array, right(n));
+            }
+            exchangeNodes(array, n, lastIndex);
+        }
+
+        static void exchangeNodes(int[] array, int n, int lastIndex)
+        {
+            if (lastIndex < left(n))
+                return;
+
+            int child = left(n);
+            if (right(n) <= lastIndex)
+                if (array[left(n)] < array[right(n)])
+                    child = right(n);
+
+            if (array[n] < array[child])
+            {
+                int temp = array[child];
+                array[child] = array[n];
+                array[n] = temp;
+                exchangeNodes(array, child, lastIndex);
+            }
+        }
+
+        static int left(int n)
+        {
+            return 2 * n + 1;
+        }
+
+        static int right(int n)
+        {
+            return 2 * (n + 1);
         }
     }
 }
